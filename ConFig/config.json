@@ -1,0 +1,23 @@
+{
+ "modelName":"flowerDCGAN",
+ "SanityCheck":"False",
+ "InChannel":3,
+ "batchSize":128,
+ "TotalEpoch":500,
+ "Adamsquaregd":0.999,
+ "strideG":2,
+ "strideD":2,
+ "codingsize":100,
+ "padding":"same",
+ "img_height":64,
+ "img_width": 64,
+ "kernelsize":5,
+ "dropoutrate":0.5,
+ "numfilter":64,
+ "scalefilterG":[4,2,1],
+ "scalefilterD":[2,4,8],
+ "leakyreluscale":0.2,
+ "Adamlr":2e-4,
+ "Shuffle":"False",
+ "Adamgradientdecay":0.5
+}
