@@ -30,14 +30,14 @@ resolutions, and video synthesis
 
 
 ## Deep Convolutional GAN (DCGAN)
-
-### Data Transorfation 
-1) normalize inputs to the range of [-1, 1]  
+ Note : Very sensitive it is to the hyperparameters
+### Data Transformation 
+1) normalize inputs to the range of [-1, 1]  (because of tanh activation)
 2) im_normalized  = (img-127.5)/127.5
 ### Generator
 1) Converts the random vectors of size 100 to 4-by-4-by-512 arrays using a project layer and reshape operation.
 2) Upscales the resulting arrays to 64-by-64-by-3 arrays using a series of transposed convolution layers with batch normalization and ReLU layers.
-3) outout should be of size (BS,64,64,3)
+3) output should be of size (BS,64,64,3)
 4) use kernel initializer N(0,0.02)
 
 
@@ -69,6 +69,7 @@ Note: remember to resale output again when you generate data by generator (img*1
     1. D loss around 0.5 (0.5-0.8)
     2. stability for D around epoch 100-300
     3. G loss> D loss (around 1.0,1.5,2.0 or even higher
+    4. I tried more augmentation for G , then G became stronger than D 
 5) if D loss converges to zero, it means we have strong D
     1. solution: adding noise to D input (i did this one)
     2. solution: impair D by randomly giving false labels to real images

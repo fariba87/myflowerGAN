@@ -1,7 +1,7 @@
 import tensorflow as tf
+import os
 from ConFig.configreader import ConfigReader
 cfg = ConfigReader()
-#from main import class_names
 
 
 # def get_label(file_path):
@@ -12,14 +12,13 @@ cfg = ConfigReader()
 #   # Integer encode the label
 #   return tf.argmax(one_hot)
 
-
 def decode_img(img):
   img = tf.io.decode_jpeg(img, channels=3)
   return tf.image.resize(img, [cfg.img_height, cfg.img_width])
 
 
 def process_path(file_path):
-  # label = get_label(file_path)
+#  label = get_label(file_path)
   img = tf.io.read_file(file_path)
   img = decode_img(img)
   return img # label  # if i dont need the label just return img

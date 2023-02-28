@@ -8,7 +8,7 @@ ds, metadata = tfds.load(
 # then there will a folder created under tensorflow_dataset directory consist of tf record files of images
 path_tfrec='path to that folder'
 tfrec_ds = tf.data.TFRecordDataset(path_tfrec)
-feature_description={
+feature_description = {
     'image': tf.io.FixedLenFeature([] , dtype=tf.string),
     #'label': tf.io.FixedLenFeature([] , dtype=tf.string)
 }

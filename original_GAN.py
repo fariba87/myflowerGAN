@@ -1,3 +1,5 @@
+# for illustration purpose (GAN which include only Dense layer
+#
 import tensorflow as tf
 tf.random.set_seed(1)
 codings_size = 30
@@ -19,14 +21,8 @@ discriminator.compile(loss="binary_crossentropy", optimizer="rmsprop")
 discriminator.trainable = False
 gan.compile(loss="binary_crossentropy", optimizer="rmsprop")
 
-'''Since the training loop is unusual, we cannot use the regular fit() method.
-Instead, we will write a custom training loop. For this, we first need to create
-a Dataset to iterate through the images:'''
+
 batch_size = 32
-#dataset = tf.data.Dataset.from_tensor_slices(X_train).shuffle(buffer_size=1000)
-#from main import train_ds
-#dataset =train_ds
-#dataset = dataset.batch(batch_size, drop_remainder=True).prefetch(1)
 
 '''def train_gan(gan, dataset, batch_size, codings_size, n_epochs):
     generator, discriminator = gan.layers
